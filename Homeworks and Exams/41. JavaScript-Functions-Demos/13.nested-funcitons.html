@@ -1,0 +1,23 @@
+<html>
+<head>
+	<title>Functions in JS can be Nested</title>
+</head>
+<body>
+	<script type = "text/javascript">
+		function getWordsUppercase(str) {
+                        var words = extractWords(str);
+                        var wordsUppercase = [];
+                        words.forEach(function(w) {
+                                wordsUppercase.push(w.toUpperCase());
+                        });
+                        return wordsUppercase;
+                        function extractWords(str) {
+                                return str.split(/\s+/);
+                        }
+                }
+                var result=getWordsUppercase('Hi, how are you?');
+                console.log(result);
+                // ["HI", "HOW", "ARE", "YOU?"] // nested functions are inaccessible outside parent scopeextractWords('Hello functions');  // ReferenceError
+	</script>
+</body>
+</html>

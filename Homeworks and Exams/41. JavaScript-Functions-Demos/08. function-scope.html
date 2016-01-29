@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Functions - Scope</title>
+</head>
+<body>
+	<script>
+		var arr = [1, 2, 3, 3, 4, 3, 5, 3, 6, 7];
+
+		function countOccurences(value) {
+			var count = 0;
+			for (var i = 0; i < arr.length; i++) {
+				if (arr[i] === value) count++;
+			}
+			return count;
+		}
+
+		console.log(countOccurences(3));
+		// count vaji samo v scope na countOccurences
+		//console.log(count);
+
+		// Local Scope variables
+		function play() {
+			for (var x = 1; x < 5; x++) {
+				var y = x * x;
+				console.log(x + " " + y);
+			}
+		}
+
+		play();
+
+		console.log(typeof(x)); // undefined
+		console.log(typeof(y)); // undefined
+
+		// Immediately-Invoked Function Expression (IIFE)
+		(function() {
+			for (var x = 1; x < 5; x++) {
+				var y = x * x;
+				console.log(x + " " + y);
+			}
+		})();
+
+		console.log(typeof(x) + " " + typeof(y)); // undefined undefined
+
+		// Example of global scope variables:
+		for (var x = 1; x < 5; x++) {
+			var y = x * x;
+			console.log(x + " " + y);
+		}
+
+		console.log("x=" + x + " y=" + y); // x=4 y=16
+		// Now "x" and "y" are variables in the global scope
+		// Global variables (declared without var) !== variables in the global scope(declared with var)
+	</script>
+</body>
+</html>

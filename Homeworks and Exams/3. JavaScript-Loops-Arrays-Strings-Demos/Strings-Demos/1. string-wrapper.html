@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Strings - Object Wrapper</title>
+    <link rel="stylesheet"
+          href="styles/js-console.css">
+</head>
+<body>
+    <section>
+        <div id="js-console">
+        </div>
+    </section>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        var str = 'Sample string';
+        jsConsole.writeLine(typeof str);
+        jsConsole.writeLine(str);
+
+        var strObj = new String('Sample string');
+        jsConsole.writeLine(typeof strObj);
+        jsConsole.writeLine(strObj);
+
+        //        debugger;
+    </script>
+</body>
+</html>

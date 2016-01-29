@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml">
+	<head>
+		<title>JS Console - Example</title>
+	</head>
+	<body>
+		<script>
+                        //Repeating code
+                        var dicho = {
+                                fname   : 'Dicho',
+                                lname   : 'Dichov',
+                                toString: function() {
+                                        return this.fname + ' ' + this.lname;
+                                }
+                        };
+                        var georgiev = {
+                                fname   : 'Georgi',
+                                lname   : 'Georgiev',
+                                toString: function() {
+                                        return this.fname + ' ' + this.lname;
+                                }
+                        };
+                        var kirova = {
+                                fname   : 'Maria',
+                                lname   : 'Kirova',
+                                toString: function() {
+                                        return this.fname + ' ' + this.lname;
+                                }
+                        };
+
+                        // Repeating code avoided
+                        function buildPerson(fname, lname) {
+                                return {
+                                        fname   : fname,
+                                        lname   : lname,
+                                        toString: function getFullName() {
+                                                return this.fname + " " + this.lname;
+                                        }
+                                };
+                        }
+
+                        var tom = buildPerson('Tom', 'Miller');
+                        var kate = buildPerson('Kate', 'Brown');
+
+                        console.log(tom);
+                        console.log(kate);
+
+                        //JSON.stringify(obj)
+                        // minus: ako ima funkcii kato propertita, te niama da se preobrazuvat kato string
+                        var obj = {
+                                town: 'Sofia',
+                                gps : {
+                                        lat: 42.70,
+                                        lng: 23.32
+                                }
+                        };
+                        var str = JSON.stringify(obj);
+                        console.log(str);
+
+                        //JSON.parse(str)
+                        //var str = '{"town":"Sofia","gps":{"lat":42.70,"lng":23.32}}';
+                        var obj = JSON.parse(str);
+                        console.log(obj);
+                        // both lines below throw SyntaxError
+                        JSON.parse('{foo:"bar"}');
+                        JSON.parse("{'foo':'bar'}");
+
+
+
+
+
+		</script>
+	</body>
+</html>

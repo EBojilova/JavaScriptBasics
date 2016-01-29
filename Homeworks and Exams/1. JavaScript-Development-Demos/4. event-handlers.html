@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml">
+<head>
+	<title>Introduction to JavaScript - Event Handlers</title>
+	<style>
+		img:hover
+                {
+                        opacity : 0.5;
+                        cursor  : pointer;
+                }
+	</style>
+	<script>
+		function onLogoClicked(message) {
+                        console.log(this);
+                        alert(message);
+                        //                        vidove consolni saobstenia
+                        console.log('log');
+                        console.error('error');
+                        console.info('info');
+                        console.warn('warn');
+// Date object
+                        /*ste varne tekustata data, moje i nie da vavedem data
+                        https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Date*/
+                        var now = new Date();
+                        var result = "The time is " + now;
+                        document.getElementById("timeField").innerText = result;
+// Math object
+                        for (var i = 1; i <= 20; i++) {
+//                                random vrasta chisla mejdu 0 i 1
+                                var x = Math.random();
+                                x     = 10 * x + 1;
+                                x     = Math.floor(x);
+                                document.write(
+                                        "Random number (" + i + ") in range " + "1..10 --> " + x + "<br/>");
+                        }
+
+
+
+                }
+
+                function onGenderChange(e) {
+                        var select = document.getElementById("gender-select");
+                        alert(select.options[select.selectedIndex].value)
+                }
+
+                function getResult() {
+                        var input = document.getElementsByTagName("input");
+//			console.log('typing');
+//			console.log(input);- ste varne kolekcia ot elementi, vapreki, che imame samo edin tag
+//			console.log(input[0]);- selectiram tochno nashia tag
+                        console.log(input[0].value);
+                }
+	</script>
+</head>
+
+															   
+<body>
+	<!--http://www.w3schools.com/jsref/dom_obj_event.asp-->
+	<img src = "images/SoftUni-Logo.png"
+             width = "150"
+             onclick = "onLogoClicked('You clicked the SoftUni Logo!')"/>
+	<label for = "gender-select">Gender: </label>
+	<select id = "gender-select"
+                onchange = "onGenderChange(event)">
+		<option value = "male">Male</option>
+		<option value = "female">Female</option>
+		<option value = "other">Other</option>
+	</select>
+        <!--onkeypressed ne hvasta poslednata vavedena bukva, zatova onkeyup e po-dobre-->
+	<input type = "text"
+               onkeyup = "getResult()">
+        <!--mojem chrez funkcia da kazvame kakakav ste e teksta v paragrafa-->
+        <p id="timeField"></p>
+</body>
+</html>

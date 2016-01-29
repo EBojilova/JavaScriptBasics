@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml">
+<head>
+	<title>Ways to Define a Function in JSw</title>
+</head>
+<body>
+	<script>
+               // By function declaration
+               function printHello() {
+                       console.log('Hello');
+               }
+
+               //By function expression (anonymous function)
+               var printHello = function() {
+                       console.log('Hello')
+               };
+               var printHello = function printFunc() {
+                       console.log('Hello')
+               };
+
+               // Using the Function constructor (anonymous function)
+               // Opasno e da izpolzvame tozi nachin, tai Funciton() savpada s eval(), s koito mojem da napravim
+               // opasen SQL injection eval('SQL * FROM usernames WHERE userLevel == admin')- taka v nai-loshia sluchai
+               // direktno ste ni logne kato admin, a v nai-dobria ste ni varne paroli(ako ne sa heshirani),....
+               // da izbiagvame firmi v koito e praktika da se izpolzva new Function(...
+               var printHello = new Function('console.log("Hello")');
+               var sum = new Function('a', 'b', 'return a + b;');
+	</script>
+</body>
+</html>

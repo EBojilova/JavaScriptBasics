@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml">
+<head>
+	<title>Functions - Returning a Value</title>
+</head>
+<body>
+	<script>
+		function getPropertiesCount(obj) {
+                        var count = 0;
+                        for (var prop in obj) {
+                                count++;
+                        }
+                        return count;
+                }
+
+                console.log(getPropertiesCount(document));
+                console.log(getPropertiesCount(navigator));
+
+                function createStudent(name, age, gender) {
+                        var obj = {
+                                name  : name,
+                                age   : age,
+                                gender: gender
+                        };
+                        return obj;
+                }
+
+                var student = createStudent("Deyan", 21, "male");
+                console.log(student);
+
+                // Default return values
+                function Class() {
+                        //return;
+                }
+                var returned = Class();            // returns undefined- nothing is returned inside Class function
+                console.log(typeof returned);
+                returned = new Class();        // returns object, instance of Class
+                console.log(typeof returned);
+
+                function hi5() {
+                        return 5;
+                }
+                returned = hi5();              // returns 5
+                console.log(typeof returned);
+                returned = new hi5();          // returns object, instance of hi5
+                console.log(typeof returned);
+
+                var studentsArr = [{name: 'Ivan', age: 16, gender: 'male'},
+                        {name: 'George', age: 15, sex: 'male'},
+                        {name: 'Maria', age: 22, gender: 'female'}];
+                function calculateAverageAge(studentsArr) {
+                        var sum = 0;
+                        for (var i = 0; i < studentsArr.length; i++) {
+                                sum += studentsArr[i].age;
+                        }
+                        return sum / studentsArr.length;
+                }
+                var avgStudentsAge = Math.floor(calculateAverageAge(studentsArr));
+                console.log(avgStudentsAge);
+
+	</script>
+</body>
+</html>

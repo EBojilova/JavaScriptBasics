@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Circle Area</title>
+    <link href="styles/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <script src="scripts/calculateCircleArea.js"
+            type="text/javascript"></script>
+    <script src="scripts/calculateCircleAreaUI.js"></script>
+    <form action="post">
+        <label for="input">Enter radius:</label>
+        <input type="text"
+               id="input"
+               onchange="getInput()" />
+        <input type="button"
+               id="btn"
+               value="calculate"
+               onClick="calc()">
+        <div id="result-box">Circle area will be displayed here.</div>
+    </form>
+</body>
+</html>

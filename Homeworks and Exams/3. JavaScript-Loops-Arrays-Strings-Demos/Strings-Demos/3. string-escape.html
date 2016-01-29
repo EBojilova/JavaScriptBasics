@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Strings - HtmlEscape</title>
+    <script src="scripts/string-extensions.js"></script>
+    <link rel="stylesheet"
+          href="styles/js-console.css">
+</head>
+<body>
+    <section>
+        <div id="js-console">
+        </div>
+    </section>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        var script = '<script>document.location="http://softuni.bg";<\/script>';
+        //document.write(script.htmlEscape());
+        //document.write(script);
+        jsConsole.writeLine(script.htmlEscape());
+    </script>
+</body>
+</html>

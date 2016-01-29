@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<!--suppress ALL -->
+<html>
+
+<head>
+	<title>Undefined / null / typeof</title>
+</head>
+
+<body>
+	<h1>Look at the Console</h1>
+	<script>
+		var x = 5;
+		console.log("x = 5, typeof(x) = " + typeof(x));
+		
+		x = 3.14159;
+		console.log("x = 3.14159, typeof(x) = " + typeof(x));
+
+		x = undefined;
+		console.log("x = undefined, typeof(x) = " + typeof(x));
+		
+		x = null;
+		console.log("x = null, typeof(x) = " + typeof(x));
+		
+		x = 'hello';
+		console.log("x = 'hello', typeof(x) = " + typeof(x));
+		
+		x = new Number(5);
+		console.log("x = new Number(5), typeof(x) = " + typeof(x));
+
+		x = { name: "SoftUni", age: 2 };
+		console.log("x = { name: 'SoftUni', age: 2 }, typeof(x) = " + typeof(x));
+	</script>
+</body>
+
+</html>

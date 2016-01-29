@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>Function Context</title>
+</head>
+<body>
+	<script type = "text/javascript">
+		// as function (this refers to the global object)
+		function foo() {
+			console.log(this);
+		}
+		foo(); // logs "window"
+
+		// as constructor (this refers to the new instance)
+		function Foo() {
+			console.log(this);
+		}
+		new Foo(); // logs "Foo {}" where the object is new instance of "Foo"
+
+		// as method (this refers to the owner object)
+		var object = {
+			foo1: 'bar',
+			getFoo: function () {
+				return this.foo1;  // "this" refers to "object"
+			}
+		};
+		console.log(object.getFoo()); // returns "bar"
+
+		// as callback (this refers to the global object)
+		var object2 = {
+			foo2: 'bar',
+			getFoo: function () {
+				console.log(this.foo2);
+			}
+		};
+
+		// pass "getFoo" as callback to "setTimeout"
+		// prehvarliame samo funkciata, bez da ia izvikvame s object2.getFoo ()
+		setTimeout(object2.getFoo, 100); // the console logs "undefined" after 100ms
+	</script>
+</body>
+</html>

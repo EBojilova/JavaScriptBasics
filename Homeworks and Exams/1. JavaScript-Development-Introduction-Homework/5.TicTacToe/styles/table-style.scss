@@ -1,0 +1,77 @@
+*
+{
+    padding : 0;
+    margin  : 0;
+}
+
+body
+{
+    font-family : Arial, sans-serif;
+    text-align  : center;
+
+    div#wrapper
+    {
+        width   : 200px;
+        border  : 1px solid #000;
+        margin  : 0 auto;
+        padding : 20px 0;
+
+        table, td, th
+        {
+            border : 1px solid black;
+        }
+
+        table
+        {
+            margin-left     : auto;
+            margin-right    : auto;
+            border-collapse : collapse;
+            tr
+            {
+                td
+                {
+                    height              : 50px;
+                    width               : 50px;
+                    text-align          : center;
+                    font-size           : 40px;
+                    //http://stackoverflow.com/questions/826782/css-rule-to-disable-text-selection-highlighting
+                    -webkit-user-select : none;
+                    -moz-user-select    : none;
+                    -ms-user-select     : none;
+                    user-select         : none;
+                    cursor              : pointer;
+                }
+            }
+        }
+
+        p
+        {
+            min-height    : 30px;
+            line-height   : 30px;
+            border-top    : 1px solid #d3d3d3;
+            border-bottom : 1px solid #d3d3d3;
+            margin-top    : 20px;
+        }
+
+        button
+        {
+            margin-top : 20px;
+            min-width  : 60px;
+            padding    : 5px;
+            cursor     : pointer;
+
+            &:hover
+            {
+                background-color : orange;
+                color            : white;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+

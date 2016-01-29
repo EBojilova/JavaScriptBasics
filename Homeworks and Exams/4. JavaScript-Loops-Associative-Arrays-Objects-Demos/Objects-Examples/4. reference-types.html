@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+</head>
+<body>
+	<script>
+
+		function printStudent(student) {
+			console.log('<strong>' + student.name + '</student>');
+			for (var i in marks) {
+				console.log('<strong>' + marks[i].subject + '</strong>' + ' : ' + marks[i].score);
+			}
+			console.log('--------------------------');
+		}
+
+		// Assign string values to two variables
+		var marks = [
+			{ subject: 'JavaScript', score: 5.50 },
+			{ subject: 'OOP', score: 5.00 },
+			{ subject: 'PHP', score: 6.00 },
+			{ subject: 'Photoshop', score: 4.00 }];
+		var student = { name: 'Maria Atanassova', marks: marks };
+		printStudent(student);
+		marks[2].score = 5.50;
+		printStudent(student);
+
+		// Shared object – two variables holding the same object:
+		var peter = { name: 'Peter', age: 21 };
+		var maria = peter;
+		maria.name = 'Maria';
+		console.log(maria); // Object {name: "Maria", age: 21}
+		console.log(peter); // Object {name: "Maria", age: 21}
+
+		// Cloned objects – two variables holding separate objects:
+		var peter = { name: 'Peter', age: 21 };
+		var maria = JSON.parse(JSON.stringify(peter));
+		maria.name = 'Maria';
+		console.log(maria); // Object {name: "Maria", age: 21}
+		console.log(peter); // Object {name: "Peter", age: 21}
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml">
+<head>
+	<title>JS Console - Example</title>
+</head>
+<body>
+	<script>
+		var prices = {'orange':2.30, 'apple':1.50, 'tomato':3.80};
+		console.log(prices['orange']); // 2.3
+		prices['cucumber'] = 1.25;
+		delete prices['orange'];
+		console.log(prices); // {apple: 1.5, tomato: 3.8, cucumber: 1.25}
+
+		for (key in prices) {
+			console.log(key + ' -> ' + prices[key]);
+		}
+
+		console.log(Object.keys(prices)); // ["orange", "apple", "tomato"]
+		var nums = [10, 20, 30];
+		console.log(Object.keys(nums)); // ["0", "1", "2"]
+
+
+	</script>
+</body>
+</html>

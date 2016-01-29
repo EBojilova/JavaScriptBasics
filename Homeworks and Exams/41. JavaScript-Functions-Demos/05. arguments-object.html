@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Functions - the arguments Object</title>
+</head>
+<body>						
+	<script>
+		// http://stackoverflow.com/questions/103598/why-was-the-arguments-callee-caller-property-deprecated-in-javascript/235760#235760
+//		It is better to use named functions than arguments.callee:
+//
+//		function foo () {
+//		... foo() ...
+//		}
+//		is better than
+//
+//		function () {
+//		... arguments.callee() ...
+//		}
+//		The named function will have access to its caller through the caller property:
+//
+//			function foo () {
+//				alert(foo.caller);
+//			}
+//		which is better than
+//
+//		function foo () {
+//			alert(arguments.callee.caller);
+//		}
+		function printArguments() {
+			console.log('-------------');
+			console.log(arguments.callee);
+
+			for (var i in arguments) {
+				console.log(arguments[i]);
+			}
+			console.log('-------------');
+		}
+
+		printArguments(1, 2, 3, 4, 5);
+
+		printArguments([1, 2, 3, 4, 5], 'String', new Object(), new Date());
+	</script>
+</body>
+</html>
