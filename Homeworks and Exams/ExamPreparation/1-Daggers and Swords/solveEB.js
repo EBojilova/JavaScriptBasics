@@ -7,8 +7,16 @@ function solve(input) {
     console.log('<tbody>');
 
     for (var i = 0; i < input.length; i++) {
-        var bladeLength = Math.floor(Number(input[i]));;
+        var bladeLength = Math.floor(Number(input[i]));
         if (bladeLength > 10) {
+            var type = '';
+            if (bladeLength > 40) {
+                type = 'sword';
+            }
+            else {
+                type = 'dagger';
+            }
+
             var application = '';
             switch (remainderAfterDivisionWith5(bladeLength)) {
                 case 1:
@@ -29,15 +37,6 @@ function solve(input) {
                 default:
                     application = 'ERROR';
             }
-
-            var type = '';
-            if (bladeLength > 40) {
-                type = 'sword';
-            }
-            else {
-                type = 'dagger';
-            }
-
             console.log('<tr><td>' + bladeLength + '</td><td>' + type + '</td><td>' + application + '</td></tr>');
         }
     }

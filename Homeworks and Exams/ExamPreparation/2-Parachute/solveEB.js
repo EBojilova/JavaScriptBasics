@@ -2,9 +2,9 @@
 function solve(chart) {
 
     for (var row in chart) {
-        if (parachutistPositon) {
+        if (col !== undefined) {
             //Checks the next move
-            var col = checkNextMove(parachutistPositon.col);
+            findCol(col);
 
             if (chart[row].charAt(col) == '/' ||
                 chart[row].charAt(col) == '\\' ||
@@ -20,16 +20,14 @@ function solve(chart) {
             }
             else if (chart[row].charAt(col) == '_') {
                 console.log('Landed on the ground like a boss!');
-                console.log(row,col);
+                console.log(row, col);
                 break;
             }
-
-            parachutistPositon.col = col;
         }
 
-        if (!parachutistPositon) {
+        if (col === undefined) {
             //Finding the starting position
-            var parachutistPositon = findStartingPos();
+            var col = findStartingPos();
         }
 
     }
@@ -37,37 +35,47 @@ function solve(chart) {
     function findStartingPos() {
         for (var col = 0; col < chart[row].length; col++) {
             if (chart[row][col] == 'o') {
-                return {
-                    col: col
-                };
+                return col;
             }
         }
     }
 
-    function checkNextMove( col) {
-        var windDirection = 0;
+    function findCol() {
         for (var i = 0; i < chart[row].length; i++) {
-            if (chart[row].charAt(i) == '>') {
-                windDirection += 1;
+            var currentChar = chart[row].charAt(i);
+            if (currentChar == '>') {
+                col++;
             }
-            else if (chart[row].charAt(i) == '<') {
-                windDirection -= 1;
+            else if ((currentChar) == '<') {
+                col--;
             }
         }
-        return  col + windDirection;
     }
 }
 
-solve(
-    [
-        "-------------o-<<--------",
-        "-------->>>>>------------",
-        "---------------->-<---<--",
-        "------<<<<<-------/\\--<--",
-        "--------------<--/-<\\----",
-        ">>--------/\\----/<-<-\\---",
-        "---------/<-\\--/------\\--",
-        "<-------/----\\/--------\\-",
-        "\\------/--------------<-\\",
-        "-\\___~/------<-----------"
-    ]);
+//solve(
+//    [
+//        "-------------o-<<--------",
+//        "-------->>>>>------------",
+//        "---------------->-<---<--",
+//        "------<<<<<-------/\\--<--",
+//        "--------------<--/-<\\----",
+//        ">>--------/\\----/<-<-\\---",
+//        "---------/<-\\--/------\\--",
+//        "<-------/----\\/--------\\-",
+//        "\\------/--------------<-\\",
+//        "-\\___~/------<-----------"
+//    ]);
+
+solve([
+          'o----------/-------------',
+          '-------->>/-->>-->><<----',
+          '----------\--->>>>-------',
+          '-----------\_________>---',
+          '---------------------\>--',
+          '>>>>>>----------------\-<',
+          '------>>>>------------/--',
+          '---------------------/---',
+          '--------------------/----',
+          '-------------------/-----'
+      ]);

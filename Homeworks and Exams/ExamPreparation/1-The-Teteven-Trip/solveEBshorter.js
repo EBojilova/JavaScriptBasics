@@ -4,8 +4,8 @@ function evaluate(input) {
     var currentLine;
     var fuelConsumption, totalConsumption;
 
-    for (var i in input) {
-        currentLine = input[i].split(" ");
+    input.forEach(function(inputLine) {
+        currentLine = inputLine.split(" ");
 
         carModel = currentLine[0];
         fuelType = currentLine[1];
@@ -37,8 +37,8 @@ function evaluate(input) {
         }
         totalConsumption = Math.round(totalConsumption);
 
-        console.log(carModel + " " + fuelType + " " + road + " " + totalConsumption);
-    }
+        console.log(carModel, fuelType, road, totalConsumption);
+    })
 }
 
 var input = [

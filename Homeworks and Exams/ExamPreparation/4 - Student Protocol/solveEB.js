@@ -17,23 +17,21 @@ function solve(arr) {
             continue;
         }
 
-        if (data[exam] === undefined) {
+        if (!data[exam]) {
             data[exam] = [];
-            data[exam].push(new student(name, result));
         }
-        else {
-            var firstTime = true;
-            for (var j = 0; j < data[exam].length; j++) {
-                if (name === data[exam][j].name) {
-                    data[exam][j].result = Math.max(data[exam][j].result, result);
-                    data[exam][j].makeUpExams++;
-                    firstTime = false;
-                    break;
-                }
+
+        var firstTime = true;
+        for (var j = 0; j < data[exam].length; j++) {
+            if (name === data[exam][j].name) {
+                data[exam][j].result = Math.max(data[exam][j].result, result);
+                data[exam][j].makeUpExams++;
+                firstTime = false;
+                break;
             }
-            if (firstTime) {
-                data[exam].push(new student(name, result));
-            }
+        }
+        if (firstTime) {
+            data[exam].push(new student(name, result));
         }
     }
 
@@ -41,9 +39,11 @@ function solve(arr) {
     Object.keys(data)
           .forEach(function(exam) {
               data[exam].sort(function(student1, student2) {
+                  //result in descending order: the students with the highest results should be first.
                   if (student1.result !== student2.result) {
-                      return student2.result > student1.result;
+                      return student1.result < student2.result;
                   }
+                  // makeup exams taken in ascending order (if there are several players with the same result)
                   else if (student1.makeUpExams !== student2.makeUpExams) {
                       return student1.makeUpExams > student2.makeUpExams;
                   }

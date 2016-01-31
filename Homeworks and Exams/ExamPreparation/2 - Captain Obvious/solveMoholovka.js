@@ -29,6 +29,8 @@ function solve(arr) {
     var match;
     var sentenceMatched = false;
 
+    // ili match = arr[1].match( /[A-Z].+?[?!.]/g);- ste varne direktno masiv s matchovete i mojem da iterirame
+    // match.forEach()...
     while (match = regex.exec(arr[1])) {
         var currentSequence = match[0].toLowerCase();
         var counter = 0;
