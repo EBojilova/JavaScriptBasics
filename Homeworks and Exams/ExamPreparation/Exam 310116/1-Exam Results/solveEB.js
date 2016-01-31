@@ -1,48 +1,52 @@
 "use strict";
 function solve(input) {
-
+    
     var student, course, examPoints, bonuses;
     var inputLine;
     var coursePoints, grade;
     var courses = [];
-
+    
     for (var i = 0; i < input.length - 1; i++) {
-        inputLine = input[i].split(/\s+/);
+        inputLine = input[i].split(' ')
+                            .filter(function(value) {
+                                return value !== '';
+                            });
         student = inputLine[0].trim();
         course = inputLine[1].trim();
         examPoints = Number(inputLine[2].trim());
         bonuses = Number(inputLine[3].trim());
-
+        
         if (courses[course] === undefined) {
             courses[course] = [];
         }
-
+        
         courses[course].push(examPoints);
-
+        
         if (examPoints < 100) {
             console.log('%s failed at \"%s\"', student, course);
             continue;
         }
-
+        
         coursePoints = examPoints / 4 * 0.8 + bonuses;
-
+        
         if (coursePoints >= 80) {
             grade = 6;
         }
         else {
             grade = coursePoints * 4 / 80 + 2;
         }
-
+        
         coursePoints = Number(coursePoints.toFixed(2));
         grade = grade.toFixed(2);
-
+        
         console.log('%s: Exam - \"%s\"; Points - %s; Grade - %s', student, course, coursePoints, grade);
     }
 
-    var courseNameAveragePoints = input[input.length - 1];
+    // ne biah trimnala tuka i zatova mi davashe 75/100
+    var courseNameAveragePoints = input[input.length - 1].trim();
     var averageGrade = Number(average(courses[courseNameAveragePoints]));
     console.log('"%s" average points -> %d', courseNameAveragePoints, averageGrade);
-
+    
     function average(arr) {
         var sum = 0;
         for (var i in arr) {
