@@ -12,22 +12,22 @@ function solve(input) {
         });
     }
 
-
     var counter = 1;
     for (var j = 1; j < numbers.length; j++) {
         if (numbers[j] === numbers[j - 1]) {
             counter++;
+            if (counter === seqLength) {
+                for (var l = 0; l < seqLength; l++) {
+                    numbers[j - l] = 'removed';
+                }
+                counter = 1;
+                j++;
+            }
         }
         else {
             counter = 1;
         }
-        if (counter === seqLength) {
-            for (var l = 0; l < seqLength; l++) {
-                numbers[j - l] = 'removed';
-            }
-            counter = 1;
-            j++;
-        }
+
     }
 
     // i tozi variant dava 100 tochki
