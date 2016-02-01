@@ -12,38 +12,38 @@ function solve(input) {
         });
     }
 
-    // tova reshenie dava 60/100, ne moga da otkria zasto
-    //var counter=1;
-    //for (var j = 1; j < numbers.length; j++) {
-    //    var current = numbers[j];
-    //    var prev = numbers[j - 1];
-    //
-    //    if (current === prev) {
-    //        counter++;
-    //        if (counter === seqLength) {
-    //            var lastIndex = j;
-    //            for (var l = 0; l < seqLength; l++) {
-    //                numbers[lastIndex] = 'removed';
-    //                lastIndex--;
-    //            }
-    //            counter = 1;
-    //            j++;
+
+    var counter = 1;
+    for (var j = 1; j < numbers.length; j++) {
+        if (numbers[j] === numbers[j - 1]) {
+            counter++;
+        }
+        else {
+            counter = 1;
+        }
+        if (counter === seqLength) {
+            for (var l = 0; l < seqLength; l++) {
+                numbers[j - l] = 'removed';
+            }
+            counter = 1;
+            j++;
+        }
+    }
+
+    // i tozi variant dava 100 tochki
+    //for (var i = 0; i < numbers.length; i++) {
+    //    var repeats = 1;
+    //    for (var j = i + 1; j < i + seqLength; j++) {
+    //        if (numbers[i] === numbers[j]) {
+    //            repeats++;
+    //        }
+    //    }
+    //    if (repeats === seqLength) {
+    //        for (var j = i; j < i + seqLength; j++) {
+    //            numbers[j] = 'removed';
     //        }
     //    }
     //}
-    for (var i = 0; i < numbers.length; i++) {
-        var repeats = 1;
-        for (var j = i + 1; j < i + seqLength; j++) {
-            if (numbers[i] === numbers[j]) {
-                repeats++;
-            }
-        }
-        if (repeats === seqLength) {
-            for (var j = i; j < i + seqLength; j++) {
-                numbers[j] = 'removed';
-            }
-        }
-    }
 
     var currentNumberPositon = 0;
     for (var row = 0; row < matrix.length; row++) {

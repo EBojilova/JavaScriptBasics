@@ -17,7 +17,7 @@ function solve(input) {
                             function(full, key) {
                                 if (bannedNames.indexOf(key) > -1) {
                                     var stars = "";
-                                    return key.replace(/./, '*')
+                                    return key.replace(/./g, '*')
                                 }
                                 return '<a href="/users/profile/show/' + key + '">' + key + '</a>';
                             });

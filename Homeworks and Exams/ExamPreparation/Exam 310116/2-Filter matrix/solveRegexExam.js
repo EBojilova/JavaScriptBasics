@@ -19,11 +19,11 @@ function solve(input) {
     elements += " ";
 
     var regexString = '([^ ]+?) \\1 ';
-    var regexReplaceString = 'REMOVED REMOVED ';
+    var regexReplaceString = 'removed removed ';
 
     for (var i = 0; i < sequenceLength - 2; i++) {
         regexString = regexString + '\\1 ';
-        regexReplaceString += 'REMOVED ';
+        regexReplaceString += 'removed ';
     }
 
     var currentReg = new RegExp(regexString, 'gi');
@@ -41,7 +41,7 @@ function solve(input) {
     for (var row = 0; row < matrix.length; row++) {
         var currentRow = [];
         for (var col = 0; col < matrix[row].length; col++) {
-            if (elements[currentNumberPositon] !== 'REMOVED') {
+            if (elements[currentNumberPositon] !== 'removed') {
                 currentRow.push(matrix[row][col]);
             }
             currentNumberPositon++;
